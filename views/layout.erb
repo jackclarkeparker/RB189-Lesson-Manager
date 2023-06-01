@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= @title %></title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="/stylesheets/main.css"/>
+  <link rel="icon" href="/favicon.ico"/>
+</head>
+<body>
+  <header>
+    <h2>Lesson Manager</h2>
+    <% if signed_in? %>
+      <nav>
+        <div class="partial half">
+          <ul>
+            <li><a href="/venues">Venues</a></li>
+            <li><a href="/lessons">Lessons</a></li>
+          </ul>
+        </div><!--
+        --><div class="partial half">
+          <p class="user-status">Signed in as <%= session[:username] %></p>
+          <form class="sign-out-button" action="/signout" method="post">
+            <input type="submit" value="Sign Out"/>
+          </form>
+        </div>
+      </nav>
+    <% end %>
+    
+    <% FLASH_CATEGORIES.each do |category| %>
+      <% if session[category] %>
+        <div class="flash <%= category %>">
+          <p><%== session.delete(category) %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </header>
+
+  <%== yield %>
+
+  <% if list_page? %>
+    <%== erb :pagination_partial %>
+  <% end %>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<main>
+  <h1>Edit Lesson Details</h1>
+  <form action="/lessons/<%= @original.id %>/edit" method="post">
+    <dl class="label-input-pairs">
+      <dt><label for="venue">Venue:</label></dt>
+      <dd>
+        <select id="venue" name="venue_id" required>
+          <% @venues.each do |venue| %>
+            <option value="<%= venue.id %>" 
+                <%= selected_venue_check(venue, params[:venue_id], @original) %>>
+              <%= venue %>
+            </option>
+          <% end %>
+        </select>
+      </dd>
+      <dt><label for="day_idx">Day:</label></dt>
+      <dd>
+        <select id="day_idx" name="day_idx" required>
+          <% Lesson::WEEK_DAYS.each_with_index do |day, index| %>
+            <option value="<%= index %>"
+                <%= selected_day_idx_check(index, params[:day_idx], @original) %>>
+              <%= day %>
+            </option>
+          <% end %>
+        </select>
+      </dd>
+      <dt><label for="start_time">Lesson start time:</label></dt>
+      <dd>
+        <input type="time" id="start_time" name="start_time"
+            value="<%= try_to_24h(params[:start_time]) || try_to_24h(@original.display_time) %>" 
+            required/>
+      </dd>
+      <dt><label for="duration">Duration in minutes:</label></dt>
+      <dd>
+        <input type="number" id="duration" name="duration" min="15" max="60"
+            value="<%= params[:duration] || @original.duration %>" required/>
+      </dd>
+      <dt><label for="capacity">Class size:</label></dt>
+      <dd>
+        <input type="number" id="capacity" name="capacity" min="1" max="12"
+            value="<%= params[:capacity] || @original.capacity%>" required/>
+      </dd>
+    </dl>
+    <input type="submit" value="Update Lesson"/>
+    <input type="submit" formaction="/lessons/<%= @original.id %>/destroy"
+        formmethod="get" value="Drop Lesson"/>
+  </form>
+  <a class="back-link" href="<%= session[:return_path] %>">Back</a>
+</main>
+
+    

@@ -1,0 +1,18 @@
+<main class="venues list">
+  <% if no_venues? %>
+    <p class="empty-list">It looks like you don't have any venues yet.</p>
+    <a href="venues/new">Add first venue?</a>
+  <% else %>
+    <h1>Venues</h1>
+    <ul>
+      <% @venues.each do |venue| %>
+        <li>
+          <h3><%== venue %></h3>
+          <p>Address: <%= venue.address %></p>
+          <a href="/venues/<%= venue.id %>/edit">Edit</a>
+        </li>
+      <% end %>
+    </ul>
+    <a href="/venues/new">Add Venue</a>
+  <% end %>
+</main>

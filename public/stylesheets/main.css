@@ -1,0 +1,233 @@
+/* ### RESETS AND BASE STYLING */
+
+/* border-box reset */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #dcb;
+  color: rgb(71, 51, 51);
+  font-family: Helvetica, Arial, sans-serif;
+  width: 98vw;
+  max-width: 1010px;
+}
+
+/* Setting default width for views, smaller than flash messages */
+main {
+  /*width: 100%;*/
+  max-width: 99%;
+}
+
+/* ### LISTS */
+
+/* Lists (venues and lessons) */
+main.list ul {
+  padding-left: 10px;
+  list-style-type: none;
+}
+
+main.list li {
+  width: 100%;
+  padding: 0 15px 15px 15px;
+  margin-bottom: 10px;
+}
+
+/* ### LESSON LISTS */
+
+/* Listed Lesson Details */
+main.lessons li {
+  background-color: #C2F483;
+  border: 1px solid black;
+  border-radius: 25px;
+}
+
+/* Text for second alligned right (lesson list) */
+main.lessons li > div + div {
+  text-align: right;
+}
+
+/* ## PARTIALS (used in lessons) ## */
+
+/* Divs partials for multiple pieces of content on one line */
+div.partial { display:inline-block; }
+
+/* Width classes for div partials */
+div.three-quarter { width: 75%; }
+div.half { width: 50%; }
+div.one-quarter { width: 25%; }
+
+/* ### VENUE LISTS */
+
+/* Listed Venue Details */
+main.venues li {
+  background-color: #B8D7F2;
+  border: 2px solid black;
+  border-radius: 6px;
+}
+
+/* Name of venues */
+main.venues h3 {
+  margin-bottom: 32px;
+}
+
+/* Address of venues */
+main.venues ul p {
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+/* ### STUDENT ROSTERS */
+
+/* Student Roster Parent container sizing, combat whitespace shenanigans */
+main.student-roster {
+  width: 76vh;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 0;
+}
+
+/* Resetting font-size for nested elements */
+main.student-roster * { 
+  font-size: 1rem; 
+}
+
+main.student-roster h1 {
+  font-size: 2rem;
+}
+
+main.student-roster > p, 
+main.student-roster > p b{
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+main.student-roster h3 {
+  font-size: 1.2rem;
+}
+
+/* Styling for student / free space boxes */
+main.student-roster div {
+  width: 37vh;
+  height: 37vh;
+  margin: 0.5vh;
+  border: 2px solid black;
+  border-radius: 50px;
+  padding: 10vh 0;
+  vertical-align: top;
+}
+main.student-roster div.occupied { background-color: #63F047; }
+main.student-roster div.vacant { background-color: #F4E7DC; }
+
+a.student-roster-back-link {
+  float: left;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+/* ### LABEL-INPUT PAIRS */
+
+/* Vertically spacing label-inputs */
+dl.label-input-pairs dt {
+  margin-top: 10px;
+}
+
+/* Remove left spacing of <dd> for label-input pairs */
+dl.label-input-pairs dd {
+  margin-left: 0;
+}
+
+/* Styling for <input> with type="text", adding a new entity with a form */
+dl.label-input-pairs input[type="text"],
+dl.label-input-pairs input[type="password"] {
+  height: 40px;
+  width: 60%;
+  max-width: 400px;
+  padding-left: 8px;
+}
+
+/* ### ENTITY DELETION */
+
+/* Styling for drop-entity container */
+main.drop-entity {
+  border: 4px solid black;
+  outline: 4px solid red;
+  margin: 100px auto;
+  width: 600px;
+  padding: 10px;
+  background-color: slategray;
+  color: firebrick;
+}
+
+/* Chopping a bit of margin off the top of the first paragraph */
+main.drop-entity > p {
+  margin-top: 0;
+}
+
+/* ### FLASH MESSAGES */
+
+div.flash {
+  width: 100%;
+  border: 2px solid black;
+  padding: 15px 10px;
+  margin-top: 10px;
+}
+div.error { background-color: red; }
+div.success { background-color: lawngreen; }
+div.neutral { background-color: lightblue; }
+
+/* ### NAV LINKS */
+
+/* All nav-link lists */
+nav ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+/* Setting nav-links side by side */
+nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+/* Pagination links spacing */
+nav.pagination-links {
+  margin-top: 20px;
+}
+
+/* ### SIGN OUT FEATURE */
+
+/* Right-aligning user status and sign out button */
+nav div + div {
+  text-align: right;
+}
+
+/* User status styling */
+p.user-status {
+  display: inline;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* Sign Out button styling */
+form.sign-out-button {
+  display: inline;
+}
+
+/* ### MISC */
+
+/* Back link styling */
+a.back-link {
+  display: inline-block;
+  margin-top: 15px;
+}
+
+/* Vertically spacing empty list text. */
+p.empty-list {
+  margin-top: 50px;
+}

@@ -1,0 +1,31 @@
+<main class="lessons list">
+  <% if no_venues? %>
+    <p class="empty-list">It looks like you don't have any venues yet.</p>
+    <a href="venues/new">Add first venue?</a></p>
+  <% elsif no_lessons? %>
+    <p class="empty-list">No lessons in system yet.</p>
+    <a href="/lessons/new">Add first lesson?</a>
+  <% else %>
+    <h1>Lessons</h1>
+    <ul>
+      <% @lessons.each do |lesson| %>
+        <li>
+          <div class="partial three-quarter">
+            <h3><%= lesson.day %>s at <%= lesson.venue %></h3>
+            <p>
+              <%= lesson.display_time %> (<%= lesson.duration %> minutes)
+            </p>
+          </div><!--
+        --><div class="partial one-quarter">
+            <p>
+              Occupancy: <%= "#{occupancy(lesson)} / #{lesson.capacity}" %>
+            </p>
+            <a href="/lessons/<%= lesson.id%>/students">Students</a>
+          </div>
+          <a href="/lessons/<%= lesson.id %>/edit">Edit</a>
+        </li>
+      <% end %>
+    </ul>
+    <a href="/lessons/new">Add Lesson</a>
+  <% end %>
+</main>

@@ -1,0 +1,12 @@
+<footer>
+  <nav class="pagination-links">
+    <ul>
+      <% if current_page > 1 %>
+        <li><a href="?page=<%= current_page - 1 %>">< Previous Page</a></li>
+      <% end %>
+      <% if (current_page * results_per_page(current_path)) < item_count(current_path) %>
+        <li><a href="?page=<%= current_page + 1 %>">Next Page ></a></li>
+      <% end %>
+    </ul>
+  </nav>
+</footer>

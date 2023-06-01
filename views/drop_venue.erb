@@ -1,0 +1,11 @@
+<main class="drop-entity">
+  <p>Are you sure you want to drop this venue?</p>
+  <p><strong>All associated lessons and students will also be removed from the system.</strong></p>
+  <p><em><strong>This can't be undone.</strong></em></p>
+
+  <form action="/venues/<%= @venue.id %>/destroy" method="post">
+    <input type="submit" value="Cancel" formmethod="get"
+        formaction="/venues/<%= @venue.id %>/edit"/>
+    <input type="submit" value="Drop Venue"/>
+  </form>
+</main>

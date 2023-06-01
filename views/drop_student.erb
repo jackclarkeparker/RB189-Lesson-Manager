@@ -1,0 +1,11 @@
+<main class="drop-entity">
+  <p>Are you sure you want to terminate this student?</p>
+  <p><strong>All data pertaining to them will be wiped from the system.</strong></p>
+  <p><em><strong>This can't be undone.</strong></em></p>
+
+  <form action="/lessons/<%= @lesson.id %>/students/<%= @student.id %>/destroy" method="post">
+    <input type="submit" value="Cancel" formmethod="get"
+        formaction="/lessons/<%= @lesson.id %>/students/<%= @student.id%>/edit"/>
+    <input type="submit" value="Terminate Student"/>
+  </form>
+</main>

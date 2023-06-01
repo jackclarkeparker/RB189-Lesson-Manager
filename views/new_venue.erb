@@ -1,0 +1,19 @@
+<main>
+  <h1>Add Venue</h1>
+  <form action="/venues" method="post">
+    <dl class="label-input-pairs">
+      <dt><label for="name">Venue Name:</label></dt>
+      <dd>
+        <input type="text" id="name" name="name" 
+            autocomplete="off" value="<%= params[:name] %>"/>
+      </dd>
+      <dt><label for="address">Address:</label></dt>
+      <dd>
+        <input type="text" id="address" name="address"
+            autocomplete="off" value="<%= params[:address] %>"/>
+      </dd>
+    </dl>
+    <input type="submit" value="Add Venue"/>
+  </form>
+  <a class="back-link" href="<%= session[:return_path] %>">Back</a>
+</main>

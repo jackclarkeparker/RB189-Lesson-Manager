@@ -1,0 +1,24 @@
+<a class="student-roster-back-link" href="<%= session[:return_path] %>">Back</a>
+<main class="student-roster">
+  <h1>Student Roster</h1>
+  <% (0...displayed_lesson_slot_count).each do |idx| %>
+    <% if @students[idx] %>
+      <div class="partial half occupied">
+        <h3><%== @students[idx] %></h3>
+        <p>Aged <%= @students[idx].age %></p>
+        <a href="/lessons/<%= @lesson.id %>/students/<%= @students[idx].id %>/edit">Edit</a>
+      </div>
+    <% else %>
+      <div class="partial half vacant">
+        <section class="student-details">
+          <h3>FREE SPACE</h3>
+          <a href="/lessons/<%= @lesson.id %>/students/new">Add student?</a>
+        </section>
+      </div>
+    <% end %>
+  <% end %>
+  <p>
+    Lesson: <b><%= @lesson.display_time %> <%= @lesson.day %>s</b> at <b><%= @lesson.venue %></b>
+  </p>
+</main>
+<!-- <a class="back-link" href="<%= session[:return_path] %>">Back</a> -->

@@ -1,0 +1,17 @@
+<main>
+  <h1>Sign In</h1>
+  <form action="/signin" method="post">
+    <dl class="label-input-pairs">
+      <dt><label for="username">Username</label></dt>
+      <dd>
+        <input type="text" id="username" name="username" 
+            autocomplete="off" value="<%= params[:username] %>"/>
+      </dd>
+      <dt><label for="password">Password</label></dt>
+      <dd>
+        <input type="password" id="password" name="password" autocomplete="off"/>
+      </dd>
+    </dl>
+    <input type="submit" value="Sign In"/>
+  </form>
+</main>

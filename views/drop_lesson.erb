@@ -1,0 +1,11 @@
+<main class="drop-entity">
+  <p>Are you sure you want to drop this lesson?</p>
+  <p><strong>All associated students will also be removed from the system.</strong></p>
+  <p><em><strong>This can't be undone.</strong></em></p>
+
+  <form action="/lessons/<%= @lesson.id %>/destroy" method="post">
+    <input type="submit" value="Cancel" formmethod="get"
+        formaction="/lessons/<%= @lesson.id %>/edit"/>
+    <input type="submit" value="Drop Lesson"/>
+  </form>
+</main>
