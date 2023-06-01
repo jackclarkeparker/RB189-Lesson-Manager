@@ -280,7 +280,7 @@ COPY public.students (id, lesson_id, name, age) FROM stdin;
 58	16	Baxter	10
 59	16	Bobby	9
 60	16	Bella	10
-1	16	alice	9
+1	16	Alice	9
 \.
 
 
