@@ -5,11 +5,11 @@
       <dt><label for="username">Username</label></dt>
       <dd>
         <input type="text" id="username" name="username" 
-            autocomplete="off" value="<%= params[:username] %>"/>
+            autocomplete="off" value="<%= params[:username] || "admin"%>"/>
       </dd>
       <dt><label for="password">Password</label></dt>
       <dd>
-        <input type="password" id="password" name="password" autocomplete="off"/>
+        <input type="password" id="password" name="password" autocomplete="off" value="password123"/>
       </dd>
     </dl>
     <input type="submit" value="Sign In"/>

@@ -47,6 +47,10 @@ post "/signin" do
   if valid_credentials?(username, password)
     session[:username] = username
     session[:success] = "Welcome to Keyboard Lesson Manager"
+    
+    if !session[:return_path]
+      session[:return_path] = "/venues"
+    end
     redirect_to_return_path
   else
     status 422
