@@ -11,7 +11,7 @@ services:
     runtime: ruby
     region: singapore
     plan: starter
-    buildCommand: "setup_database.sh"
+    buildCommand: "bash setup_database.sh"
     startCommand: "bundle exec ruby manager.rb"
     envVars:
       - key: DATABASE_URL
