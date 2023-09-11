@@ -1,3 +1,3 @@
 PGPASSWORD=$DATABASE_PASSWORD psql $DATABASE_URL -c 'DROP DATABASE IF EXISTS keyboard_lesson_manager';
 PGPASSWORD=$DATABASE_PASSWORD psql $DATABASE_URL -c 'CREATE DATABASE keyboard_lesson_manager';
-PGPASSWORD=$DATABASE_PASSWORD psql $DATABASE_URL -d keyboard_lesson_manager < seed.sql;
+PGPASSWORD=$DATABASE_PASSWORD psql $DATABASE_URL -d keyboard_lesson_manager -f seed.sql;
