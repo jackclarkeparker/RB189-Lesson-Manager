@@ -1,6 +1,6 @@
 databases:
-  - name: Dynamite Postgres
-    databaseName: dynamite_db
+  - name: Postgres Render Instance
+    databaseName: render_db_chci
     region: singapore
     plan: free
     user: jack
@@ -16,5 +16,5 @@ services:
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: Dynamite Postgres
+          name: Postgres Render Instance
           property: connectionString
